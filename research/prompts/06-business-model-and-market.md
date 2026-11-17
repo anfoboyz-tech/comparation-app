@@ -1,0 +1,16 @@
+# Track 6 — Market size, business model and go-to-market
+
+Output: `research/findings/06-business-model-and-market.md`
+
+## Goal
+Establish whether this can be a business: how big the opportunity is in Australia, how the app would make money (especially on used listings, where there is usually no affiliate commission), what it costs to acquire and keep users, and how comparable companies fared.
+
+## Questions
+1. **Market size, Australia.** Online retail spend (Australia Post eCommerce report, NAB Online Retail Sales Index, ABS), the second-hand economy (Gumtree/ eBay circular economy reports, Facebook Marketplace usage figures), number of Australians buying second-hand each year, average values, growth trend, and the effect of cost-of-living pressure. Then the equivalent headline numbers for the US, UK and EU for later expansion.
+2. **Revenue models.** For each, give typical rates, who uses it, and how it would apply here: affiliate commission (rates by network and category in Australia — Amazon Associates AU, eBay Partner Network, Commission Factory merchants), cost-per-click from retailers, sponsored placement, subscription or freemium (what do Keepa, Swoopa, CamelCamelCamel, Honey, ShopSavvy charge and for what?), lead generation, data and insights sold to retailers or brands, seller-side tools, transaction fees or escrow, and price-match or cashback mechanics.
+3. **Monetising the used side.** How do second-hand aggregators and deal-rating tools earn when the purchase happens person-to-person? Cover eBay Partner Network on used items, subscription alerts for resellers, and any other mechanism you find. Is there a conflict of interest when the app earns on new but not used, and how have others handled it (and what does the ACCC expect)?
+4. **Unit economics.** Using realistic numbers, estimate revenue per search and per active user under two or three models, against a per-search cost range of roughly AUD 0.02–0.30 (Track 5 will refine this). What usage and conversion levels are needed to break even?
+5. **Comparable companies.** Funding, revenue, user numbers, exits and failures for: Honey (PayPal acquisition), Klarna/PriceRunner, Idealo, ShopSavvy, Little Birdie, Phia, Beni, Daydream, Swoopa, Carsales, CarGurus, OzBargain, PriceSpy/Schibsted, Camelcamelcamel, Keepa. What explains who succeeded?
+6. **Acquisition and retention.** Shopping apps are used rarely per person. What do retention benchmarks look like for comparison and shopping apps? Which channels worked for the comparables (browser extension, SEO, TikTok/creators, community like OzBargain, alerts and wishlists that bring people back)? What habit or trigger could make this the default first stop?
+7. **Beachhead.** Which category or customer segment should come first? Evaluate candidates on purchase frequency, price level, new–used price gap, data availability, competition and affiliate rates: fishing and outdoor gear, power tools, bikes, cameras and lenses, musical instruments, baby gear, furniture, consumer electronics and phones, gaming, golf. Recommend one or two with reasons.
+8. **Distribution through platforms.** Is a standalone app the right vehicle in 2026, or should it also be (or start as) a share-sheet tool, browser extension, a ChatGPT app or similar assistant integration, or a web app? What are the trade-offs?

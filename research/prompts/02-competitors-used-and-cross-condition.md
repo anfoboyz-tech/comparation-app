@@ -1,0 +1,14 @@
+# Track 2 — Second-hand aggregators and new-versus-used comparison
+
+Output: `research/findings/02-competitors-used-and-cross-condition.md`
+
+## Goal
+This is the "has it already been done?" track. Find every product that aggregates second-hand listings across marketplaces, and every product that compares new and used prices for the same item or tells a shopper whether a used price is fair. Search hard: the founder's whole thesis rests on this gap being real.
+
+## Questions
+1. **Second-hand aggregators.** Check at least: Beni, Phia, Gem, Faircado, Croissant, Encore, Lykdat, SearchTempest, Swoopa, Flipp-style tools, PicClick, Used.com.au-style sites, Bidbud, Marketplace alert and sniping tools, StatsDrone-style reseller tools, and anything on the App Store or Google Play in Australia under searches like "compare second hand prices", "used price checker", "marketplace search all". For each: what sources it covers, whether it covers **Facebook Marketplace** and **Gumtree** and how, which countries, which categories (most are fashion — confirm), platform (app, browser extension, web), traction signals (funding, downloads, ratings), and business model.
+2. **New-versus-used in one view.** Does any product show the new retail price beside used listings for the same item and quantify the saving? Consider eBay's own price guidance, Amazon's "used and new" offers, Google Shopping's used filter, Swappa, Back Market, Reebelo, Carsales and RedBook (vehicles are a mature example of this exact pattern — describe how they do valuation), Reverb price guide, StockX, Chrono24, PriceCharting, BikeExchange and Bicycle Blue Book, Camera price guides, Cash Converters.
+3. **Fair-price and verdict tools.** Which products tell a user whether a specific used listing is a good deal (for example CarGurus deal ratings, Carsales price indicators, eBay "sold" comps tools, Facebook Marketplace's own price hints, Gumtree's price guidance, WorthPoint, Flipsy, Decluttr, Mercari and Depop pricing suggestions)? How do they compute it?
+4. **Marketplace-side moves.** Have Facebook Marketplace, Gumtree, eBay AU or Amazon AU launched anything in 2025–2026 that closes this gap from the inside (AI search, price insights, cross-listing partnerships such as eBay listings appearing in Facebook Marketplace)?
+5. **General goods gap.** Is there any product, anywhere, that does new + used + local + shipped comparison with a buy verdict for **general goods** (sporting, tools, outdoor, electronics, furniture) rather than one vertical? If you find one, document it thoroughly. If you do not, list the searches you ran so the absence is credible.
+6. **Why the gap exists.** If it is real, what does the evidence suggest is the reason — data access, product matching difficulty, monetisation of used listings, or something else?
