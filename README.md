@@ -13,5 +13,5 @@ Status: research phase. No app code yet.
 | `research/prompts/` | The research briefs each overnight agent ran (re-runnable). |
 | `research/findings/` | Raw, sourced findings — one file per brief. |
 | `research/synthesis/` | Literature review, gap analysis, research question. |
-| `methodology/` | Methodology, system pipeline, risk register, validation plan. |
+| `methodology/` | Methodology (with the validation plan), system pipeline, risk register. |
 | `app/` | Empty until the build starts. |
