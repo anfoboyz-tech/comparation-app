@@ -1,48 +1,55 @@
 # Morning brief
 
-Overnight research on the deal-finding app, 17 November 2026.
+Research on the deal-finding app, 17 November 2026. Two passes: an overnight first pass from search summaries, then a second pass that read the key sources directly.
 
 ## Verdict
 
-**Don't build "search the whole internet". The version worth testing is a fair-price check for second-hand listings, and it should be tested for a week before any app code is written.**
+**Don't build the app yet. Spend one week testing whether anyone wants it and whether existing tools already do it, then decide.**
 
-In that version you bring a listing from Facebook Marketplace, Gumtree or eBay. In about ten seconds it shows what the item costs new today and where, a fair used range, the total cost including the drive, a buy / negotiate / skip verdict and an offer to make.
+The second pass made the case weaker, not stronger:
 
-This targets the 50–100 minutes of your fishing-rod evening. It does not replace the 20 minutes of browsing Marketplace, because nothing lawful can.
+- **It has been built.** Two small tools already show a new retail price beside a verdict on a used listing, and about a dozen rate used listings some other way. None has found users.
+- **The pain in your story is not the pain in the forums.** Buyers asking "is this fair?" already knew the new price. They wanted a fair used value and a view on whether the saving was worth losing the warranty.
+- **Lawful data is thinner than it looked.** eBay's production API is for approved partners, few of the target retailers offer affiliate feeds, and Marketplace cannot be searched at all.
 
-No research track called this a clear win. The strongest wording any gave was "a reasonable small bet, not an obviously defensible business". Two things could stop it this week, and both are cheap to check: whether a general AI assistant already does it well enough, and whether anyone besides you wants it.
+If the week's tests go well, the version worth building is a fair-price check: you bring a second-hand listing and get a fair used range, the new price at Australian retailers, the total cost including the drive, a warning if the price is suspiciously low, and a buy / negotiate / skip verdict. "Search the whole internet" is not buildable lawfully.
 
-## Read this before trusting the detail
+## How far to trust this
 
-The research is a first pass, not a verified one. This session could not open web pages, and the search allowance ran out at about 20–30 queries per track. Nearly every external fact comes from a search-result summary; quotes and figures were not checked at the source. An independent review then checked this brief against the raw reports, and its corrections are included.
+- **First pass:** eight research tracks that could not open web pages. Their claims came from search-result summaries.
+- **Second pass:** four agents read the decision-critical sources directly, including eBay's licence, Amazon's and Gumtree's terms, Commission Factory's directory, app store listings, OzBargain threads, the scam reports and paper abstracts.
+- **Still unread:** Reddit, Whirlpool, eBay's developer site and several product sites refused automated requests.
+- **Never run:** no tool was installed, and no assistant was tested on a real listing.
 
 ## What the research found
 
-1. **The whole product was not found anywhere. Its parts were.**
-   - New-price comparison in Australia is free and crowded (Zyft, BuyWisely, Google). Little Birdie closed in September 2025 after A$30m from CBA.
-   - Second-hand aggregators with funding are fashion-only and avoid Facebook Marketplace.
-   - At least nine small apps rate used listings (Grabbit, YrdSale, Spottable and others). They are mostly US, aimed at resellers, and compare used against used. None has visibly won users, which is either an opening or a warning.
-   - None was seen to put the new price beside a used listing for general goods. That piece looks open. Australian app stores were not searched, so a recent local app cannot be ruled out.
-2. **Demand is unproven.**
-   - People do post "is this listing a fair price?" in forums, so the pain exists.
-   - Nothing was found measuring how common it is or showing anyone would pay.
-   - The academic evidence is that most shoppers check little and decide early, so most may not spend your 100 minutes.
-3. **General AI assistants are the incumbent, and nobody tested them.**
-   - About 61% of Australian online shoppers use AI tools at least sometimes, and half of those use them to compare prices.
-   - For new goods, a free assistant already does a rough version of your retailer check in a minute or two.
-   - Assistants are weaker on local second-hand listings today, but one track expects that advantage to last only 12–24 months.
-   - Meta is testing price information for buyers on vehicle listings and already suggests prices to sellers.
-4. **"Scan the entire internet" is not obtainable.**
-   - Facebook Marketplace has no official route to its listings, Meta's terms ban automated collection, and Meta sues. The lawful route is the user bringing the listing in.
-   - How to get current Australian new prices lawfully is not yet confirmed. Affiliate product feeds are the main lawful source, but which retailers offer them (BCF included) was not verified. The cheap route the cost estimates assume buys Google results from a vendor, which is legally grey.
-   - eBay has an official API, but its licence, as quoted in search results, bars combining eBay data with other sources and using it to "suggest or model prices". That needs eBay's written answer before the design relies on it.
-5. **Cost and revenue are close, and the gap may be negative.**
-   - Estimated cost per check: about US$0.05 for the recommended design, about US$0.02 for a cheaper variant. Nothing has been run.
-   - Estimated affiliate revenue per check: A$0.014 in the low case, A$0.06 in the base case, A$0.36 for a high-value category like cameras. For fishing gear at BCF's reported 0.5% commission it is A$0.014.
-   - So the recommended design costs more than it earns in the base case, and fishing loses money on commission alone. Every revenue input except BCF's rate is an assumption.
-   - Private second-hand sales pay no commission. Paid advertising for installs does not pay back at these numbers, and shopping apps keep about 3% of users after 30 days.
-   - On current evidence this is a small real business at best, not a venture-scale one.
-6. **The literature has the same gap.** Nothing was found on how buyers judge a used price against new, or on total-cost comparison across new, used, shipped and local.
+1. **Has it been done? Yes, repeatedly, and badly.**
+   - Deal Scout (Chrome extension) gives buy / caution / avoid on a Marketplace or eBay listing with the new retail price and where to buy new. It has 36 users and does not mention Australia.
+   - PriceSnap (web and Android) rates a pasted listing and lists retail offers. It lists an Australian-dollar market and has over 1,000 downloads.
+   - Spottable is a Sydney company that scores Marketplace listings against other asking prices. It has six Australian App Store ratings.
+   - Grabbit shows US$30 of lifetime verified revenue.
+   - New-price comparison is free and crowded: Zyft claims 700,000 users, and Little Birdie closed after A$30m of funding.
+2. **What is still open.** No tool found uses Australian retailer prices, accepts Gumtree listings, pairs a phone share flow with a new price, or includes travel cost. That is a thin opening: a better-executed local version of something nobody has made stick.
+3. **Demand is the main doubt.**
+   - In twelve OzBargain threads, people got free answers within the hour, mostly "just buy new" or "ignore it".
+   - Low-star reviews of Marketplace and Gumtree complain about scammers, suspensions and search. Price guidance did not come up.
+   - No public demand was found in fishing communities.
+   - Nothing measures how common the pain is or whether anyone would pay.
+4. **General assistants are beatable on prices today.** Which? found in October 2026 that ChatGPT gave the correct lowest price and retailer for 8 of 25 products. Google's own pages confirm Gemini shopping in Australia. Meta's buyer price insights are a vehicle-only test.
+5. **The thing buyers want is the hardest part.** A fair used value needs sale prices nobody outside the platforms has. Xianyu's published system, using its own platform's listings, lands within 20% of the asking price 54.6% of the time.
+6. **Data access.**
+   - Facebook Marketplace: no lawful automated route. The user brings the listing.
+   - Gumtree: terms from 12 October 2026 ban copying "by any means (manual or automated)", which may reach even a user-shared listing. Needs a lawyer.
+   - eBay: approved partners only. Its data must be under six hours old and cannot be stored or used to train anything, so it cannot build a price history.
+   - Amazon Australia: needs 10 sales in 30 days and approval for mobile apps, and bars price tracking and alerts.
+   - Retailers: Commission Factory lists BCF, Anaconda, Supercheap Auto, CameraPro and Camera House. Bunnings, Total Tools, Sydney Tools, Tackle World and others were not found there.
+   - In practice the new-price lookup would depend on buying search results from a vendor, which is legally grey, or on model web search, which is slower and costlier.
+7. **Money.**
+   - Estimated cost per check is about US$0.02–0.05; nothing has been run.
+   - Estimated affiliate revenue per check is A$0.014 in the low case and A$0.06 in the base case.
+   - Fishing is better than first reported: BCF pays 2% to content sites, not a flat 0.5%, which gives about A$0.056 per check. Amazon Australia pays 5% on sports and cameras and 10% on tools.
+   - A$1m a year on affiliate alone needs about 460,000 monthly users. This is a small business at best on current evidence.
+8. **A real opening on safety.** Buying-and-selling scams drew 44,553 Scamwatch reports and A$25.5m in losses in 2025. In one thread the warning sign was a price far too low, so a "suspiciously cheap" flag answers a question buyers get wrong.
 
 ## The research question
 
@@ -54,40 +61,31 @@ Nine measurable sub-questions with pass and stop thresholds are in `research/syn
 
 | Phase | Length | What | Decides |
 |---|---|---|---|
-| 0. Verify and test demand | Week 1 | Score general assistants on real listings; run a manual "send me a listing" service in hobby groups; check competitors; apply to eBay and affiliate networks | Proceed, change, or stop |
+| 0. Verify and test demand | Week 1 | Run a manual "send me a listing" service in hobby groups; try Deal Scout, PriceSnap, Spottable and PriceVet on real listings; score general assistants on the same listings; apply to eBay and affiliate networks; see a lawyer | Proceed, change, or stop |
 | 1. Coverage experiment | 2–3 days | 60 real items in three categories: can current Australian new prices be found, by what route, at what cost? | Data route and the two best categories |
-| 2. Pipeline, no interface | About 2 weeks | Build the check as a command-line tool; score it on about 100 labelled listings against general assistants | Whether to build a user-facing version, and in which category |
+| 2. Pipeline, no interface | About 2 weeks | Build the check as a command-line tool; score it on about 100 labelled listings against assistants and existing tools | Whether to build a user-facing version, and in which category |
 | 3. First user-facing version | 2–3 weeks | Bring a listing, get a verdict | — |
 | 4. Field study | 3–4 weeks | 30–50 real buyers: time saved, repeat use, whether they report what they paid, whether they pay | Launch, change, or stop |
-| 5. Widen | Later | Alerts; more categories; "cheapest way to own X" search over lawful sources; public fair-price pages | — |
+| 5. Widen | Later | Alerts; more categories; search over lawful sources; public fair-price pages | — |
 
 Full detail: `methodology/methodology.md`. System design: `methodology/pipeline.md`. Risks: `methodology/risk-register.md`.
 
-## What could make it memorable
-
-- **One action on the thing you are already looking at.** Carsales, Vivino and Yuka all attach a verdict to an item in front of you. None asks you to start a search.
-- **Neutral.** "It's cheaper new at BCF this week" is the answer Facebook, eBay and Amazon are least likely to give.
-- **Shows its working.** Sources, times and comparables on every verdict, and "not enough data" when that is true.
-- **Gets better with use.** Every check adds a price observation, and the follow-up "what did you pay?" builds data nobody outside the platforms has. In time that could support a public price guide: the RedBook for everything that isn't a car.
-
-That last point is the only route found to something defensible, and it is slow. In year one the advantage is thin.
-
 ## Decisions I need from you
 
-1. **Accept the narrower product?** Fair-price check first, wider search later over lawful sources only. I recommend yes.
-2. **Will you run the Phase 0 tests this week before we build?** They need a phone and one to two days of effort. I recommend yes; they are the cheapest way to find out whether to stop.
-3. **Which category first?** On economics, cameras and power tools score best and fishing worst. You know fishing. I recommend testing reels with named models, power tools and cameras in Phase 1 and choosing on coverage and economics together.
-4. **Web first or app first?** The business track recommends a web version first, because it can take real payments and be shared as a link, then a thin app built around the share sheet. You asked for an app. I recommend the web version for the field study and the app once repeat use is shown.
-5. **Affiliate links?** This is contested. Two tracks advise against earning from the items being judged; one plans on it. I recommend allowing them, labelled, with the verdict computed before any link is attached, and testing a paid tier early.
-6. **Open network access for this project?** My request to set this up was rejected by the service, so it needs doing by hand: in the session's title bar open the cloud environment menu, choose Edit, and under Network access either pick a broader level or add the research sites as allowed domains (steps: https://code.claude.com/docs/en/cloud-environments#network-access). With that, and a fresh search allowance, I can run a second pass that reads the sources the first pass saw only in summary.
+1. **Test before building?** I recommend running Phase 0 this week instead of starting the app today. It needs a phone and one to two days of effort, and it is where this is most likely to stop.
+2. **If you want to build today anyway,** the useful thing to build is the Phase 1 coverage experiment, not an app. It answers whether Australian new prices can be retrieved at all.
+3. **Which category?** Fishing is now competitive on economics, and you know it. I recommend reels with named models, power tools and cameras in Phase 1, chosen on coverage and economics together.
+4. **Web first or app first?** I recommend a web version for the field study, because it can take real payments and be shared as a link, then the app once repeat use is shown.
+5. **Affiliate links?** Contested between the research tracks. I recommend allowing them, labelled, with the verdict computed before any link is attached.
 
 ## Where everything is
 
 | File | Contents |
 |---|---|
-| `research/synthesis/gap-analysis.md` | Has it been done, the gap, agreements, disagreements, research gaps and how to close them |
+| `research/synthesis/gap-analysis.md` | Has it been done, the gap, what the second pass changed, research gaps and how to close them |
 | `research/synthesis/literature-review.md` | What the academic and market evidence says |
 | `research/synthesis/research-question.md` | The question, sub-questions, thresholds, hypotheses |
 | `methodology/` | Methodology, pipeline, risk register |
-| `research/findings/` | The eight raw track reports, with sources |
+| `research/findings/` | The eight first-pass reports |
+| `research/findings/second-pass/` | The four verification reports |
 | `research/prompts/` | The research briefs, re-runnable |

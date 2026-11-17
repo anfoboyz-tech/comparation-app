@@ -7,14 +7,15 @@ How to get from the research to a validated product, in stages, with a decision 
 **Share any second-hand listing; get the new price, a fair used range and a verdict in ten seconds.**
 
 - The user finds a listing on Facebook Marketplace, Gumtree or eBay and brings it to the product (screenshot, share sheet or pasted link).
-- The product identifies the item, finds the current best new price at Australian retailers, gathers comparable used prices, works out total cost including travel, and returns buy / negotiate / skip with the evidence shown and a suggested offer.
+- The product identifies the item, finds the current best new price at Australian retailers, estimates a fair used range, works out total cost including travel, and returns buy / negotiate / skip with the evidence shown and a suggested offer.
+- The forum evidence says buyers usually know the new price already. What they ask for is the fair used value and whether the saving is worth giving up a warranty, so those two answers are the centre of the product, with a warning when a price is suspiciously low.
 - A typed search ("Shimano Stradic 4000") runs the same pipeline without a listing.
 
 The reasons for this shape, and for not building "search everything" first, are in `research/synthesis/gap-analysis.md`.
 
 ## Principles
 
-1. **Lawful data only in production.** Official APIs, affiliate feeds, and what the user brings. No automated access to logged-in marketplaces. Search-results vendors are a grey route: acceptable for experiments, and a production dependency only if nothing better exists and a lawyer has looked at it.
+1. **Lawful data only in production.** Official APIs the app is approved for, affiliate feeds, and what the user brings. No automated access to logged-in marketplaces. Search-results vendors are a grey route: acceptable for experiments, and a production dependency only if nothing better exists and a lawyer has looked at it.
 2. **The model never produces a number.** Code computes every figure from retrieved evidence. The model reads, matches and explains.
 3. **Show the working.** Every verdict displays the new price with its source and time, the comparables, and how sure the tool is.
 4. **Decline when the data is thin.** "Not enough data to judge" is a valid output. Carsales and CarGurus both withhold ratings in that case.
@@ -34,7 +35,7 @@ The overnight research could not open web pages and did not measure demand. Thes
 | General-assistant baseline | Ten to twenty real Australian listings as screenshots to ChatGPT, Gemini and Meta AI. For each, hand-check the best new price (cap it at 15 minutes per listing) and write your own verdict first. Score each assistant on new price within 5% and verdict the same as yours | The best assistant scores 70% or more on both |
 | Demand | Offer a manual service for one week in at least five Australian hobby groups: "send me a second-hand listing and I'll tell you if the price is fair". Answer by hand | Fewer than 5 people use it |
 | Existing Australian app | Search the App Store and Play Store for "used price checker", "is it a good deal", "compare second hand prices", "marketplace search all" | A funded local app does this |
-| Nearest competitors on Australian listings | Install Grabbit, YrdSale, Spottable, Underpriced and Swoopa; five real listings each | One shows Australian new prices and a sound verdict |
+| Nearest competitors on Australian listings | Run five real Australian listings each through Deal Scout, PriceSnap, Spottable and PriceVet, which are the closest found. Check by hand whether BuyWisely shows used prices beside new | One gives Australian new prices and a sound verdict |
 | Meta price rating | Look for any buyer-facing price rating on a non-vehicle Marketplace listing | It exists in Australia |
 | Share-sheet payload | Share a Marketplace and a Gumtree listing from the phone apps to Notes on iPhone and Android; record what arrives | Does not stop anything; decides link versus screenshot as the main entry |
 
@@ -42,8 +43,9 @@ The manual service doubles as the first labelled data: every listing answered by
 
 Start in parallel, because they take days to weeks:
 
-- Apply to the eBay developer programme and eBay Partner Network. Email eBay with a mock-up asking four things: whether a separate eBay section beside other sources is permitted; whether eBay asking prices may feed a fair-price range; whether eBay listing data may be passed through an AI model; and whether sold-price access is available.
-- Open publisher accounts on Commission Factory, Impact, Rakuten and Partnerize. Record which target retailers have product feeds, at what commission, and whether they accept comparison publishers.
+- Apply to the eBay Partner Network for production access to the Buy APIs, which eBay reserves for approved partners and reviews against a mock-up. Ask in the application whether eBay asking prices, shown in a separate eBay section, may inform a fair-price range for a listing on another site, and whether sold-price access is available.
+- Open publisher accounts on Commission Factory, Impact, Rakuten and Partnerize. Record which target retailers have product feeds, at what commission, and whether they accept comparison publishers. Of the retailers checked so far, Commission Factory lists BCF, Anaconda, Supercheap Auto, CameraPro and Camera House; the big tool retailers and Bunnings were not found there.
+- Ask the lawyer specifically about Gumtree's terms, which ban copying "by any means (manual or automated)", and whether a user sharing their own screenshot is caught.
 - Book a short consultation with an Australian technology lawyer on the points flagged in `research/findings/03-data-access-and-legal.md`.
 
 **Decision at the end of Phase 0:** proceed, change the offer, or stop.
@@ -68,7 +70,7 @@ Answers sub-questions 2, 3 and 4. Build the pipeline in `methodology/pipeline.md
 - **Measures:** match-tier accuracy; new-price accuracy; verdict agreement; count of untraceable figures; measured cost in Australian dollars and time per check.
 - **Baseline:** the same listings through general assistants, scored identically.
 - **Regression rule:** the golden set is re-run on every prompt or model change.
-- **eBay gate:** the design must work without eBay data until eBay has answered in writing. Without eBay, the fair range rests on the new price and a percent-of-new table by category and condition. That table is hand-built from the Phase 0 and golden-set cases and is labelled as an assumption wherever it is shown.
+- **eBay gate:** the design must work without eBay data until eBay has approved the app. Even then, eBay data must be under six hours old and cannot be stored in the price history or used to train anything, so it can inform a live answer only. Without eBay, the fair range rests on the new price and a percent-of-new table by category and condition. That table is hand-built from the Phase 0 and golden-set cases and is labelled as an assumption wherever it is shown.
 
 **Decision:** build a user-facing version only if the tool beats the assistant baseline by the margin in sub-question 4 and passes sub-questions 2 and 3 in at least one category. That category becomes the first.
 
@@ -97,7 +99,7 @@ Answers sub-questions 5–8. With 30–50 people this shows direction, not preci
 
 Each step is taken when the previous one has the numbers to support it.
 
-1. **Saved items and price-drop alerts** on new prices and eBay listings, as the reason to return.
+1. **Saved items and price-drop alerts**, as the reason to return. Amazon's API terms bar price tracking and alerts, so these cannot use Amazon data.
 2. **More categories**, chosen by measured coverage, match accuracy and economics.
 3. **Cheapest way to own X:** a search across the sources with official routes (retailers, eBay, refurbished sellers) ranked by total cost. This is the founder's search vision for everything except Marketplace and Gumtree.
 4. **Public fair-price pages** per model, built from accumulated checks, so search engines and assistants cite the product.
