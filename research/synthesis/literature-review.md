@@ -46,13 +46,13 @@ So the core output of this product is an honest reference price: the real curren
 
 - **Few options, compared side by side.** Häubl and Trifts (2000) showed a recommendation agent plus a comparison table cut effort and improved decisions. Choice overload is conditional (Scheibehenne and colleagues, 2010; Chernev and colleagues, 2015), and the conditions that trigger it, complex options and uncertain preferences, describe new-versus-used well.
 - **Show confidence and evidence.** People abandon an algorithm after seeing it err, even when it beats humans (Dietvorst, Simmons and Massey, 2015). A wrong verdict costs more than a withheld one.
-- **Let users adjust the assumptions.** The same authors found that being able to adjust an algorithm's output increases its use.
+- **Let users adjust the assumptions.** A follow-up by the same authors reportedly found that being able to adjust an algorithm's output increases its use; that paper was not separately verified.
 
-The market research agrees: 3% of Australian shoppers would buy on an AI recommendation alone.
+The market research points the same way: one Australian survey, whose research firm and sample size were not seen, found 3% of shoppers would buy on an AI recommendation alone.
 
 ## 6. What machines can and cannot yet do
 
-- **Matching retail offers is solved well enough.** Current models match product offers with few or no training examples about as well as models trained on thousands (Peeters, Steiner and Bizer, 2025). Accuracy still drops on products not seen before (Peeters, Der and Bizer, 2024).
+- **Matching retail offers is feasible.** Current models match product offers with few or no training examples about as well as models trained on thousands (Peeters, Steiner and Bizer, 2025). Benchmark accuracy ranges from 0.64 to 0.89 (F1) by difficulty, and drops sharply on products not seen before (Peeters, Der and Bizer, 2024).
 - **Matching second-hand listings is unstudied.** No benchmark was found for matching a listing like "rod and reel, barely used, pick up Frankston" to a product.
 - **Valuation research supports ranges and refusals.** Han and colleagues (2020) built second-hand price suggestion as two steps: decide whether the listing can be priced at all, then price it.
 - **Shopping agents are not reliable alone.** The best agents succeed on under half of realistic tasks (ShoppingBench, Wang and colleagues, 2026) and are swayed by position and listing wording (Allouah and colleagues, 2025).
@@ -63,7 +63,7 @@ The design consequence is the one the architecture track reached independently: 
 
 | Gap | Found in the literature | Found in the market |
 |---|---|---|
-| Choosing between a new and a used instance of the same general-goods item | Nothing outside vehicles | Phia (fashion, US) only |
+| Choosing between a new and a used instance of the same general-goods item | Nothing outside vehicles | Phia (fashion, US) and Booko (books, Australia); nothing for general goods |
 | How buyers form a reference price for a used item | Nothing; the theory was built on new retail goods | Verdict tools compare used with used |
 | Total cost of acquisition as one figure: price, shipping, travel, time, risk | Nothing | Not seen in any product |
 | Buy, negotiate, wait or skip advice across conditions | Nothing | Vehicles only |
