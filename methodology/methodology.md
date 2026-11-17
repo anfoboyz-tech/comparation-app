@@ -1,123 +1,112 @@
 # Methodology
 
-How to get from the research to a validated product, in stages, with a decision at the end of each. It answers the research question in `research/synthesis/research-question.md`, where the pass and stop thresholds are defined.
+Revised after the third pass. How to get from the research to a validated product, in stages, with a decision at the end of each. It answers the research question in `research/synthesis/research-question.md`, where the pass and stop thresholds are defined.
 
 ## Product definition this methodology tests
 
-**Share any second-hand listing; get the new price, a fair used range and a verdict in ten seconds.**
+**Tell it what you need. It does the searching and the asking, and comes back with one ranked answer.**
 
-- The user finds a listing on Facebook Marketplace, Gumtree or eBay and brings it to the product (screenshot, share sheet or pasted link).
-- The product identifies the item, finds the current best new price at Australian retailers, estimates a fair used range, works out total cost including travel, and returns buy / negotiate / skip with the evidence shown and a suggested offer.
-- The forum evidence says buyers usually know the new price already. What they ask for is the fair used value and whether the saving is worth giving up a warranty, so those two answers are the centre of the product, with a warning when a price is suspiciously low.
-- A typed search ("Shimano Stradic 4000") runs the same pipeline without a listing.
+- First market to test: car parts in Australia. The founder spent four hours finding a drive shaft across websites, Marketplace and phone calls to wreckers.
+- The agent pins down the exact part, searches stock that is listed online, lodges requests with the existing parts networks, sends enquiries to yards that have to be asked, chases the ones that do not reply, and ranks the options by total cost.
+- The promise is five minutes of the user's time, with a first answer in minutes and a fuller one within a working day.
+- The fair-price check from the earlier design is the last step: it tells the user which option is the better buy, including against a new part.
 
-The reasons for this shape, and for not building "search everything" first, are in `research/synthesis/gap-analysis.md`.
+Why this shape, and why not a verdict tool or "search everything", is in `research/synthesis/gap-analysis.md`.
 
 ## Principles
 
-1. **Lawful data only in production.** Official APIs the app is approved for, affiliate feeds, and what the user brings. No automated access to logged-in marketplaces. Search-results vendors are a grey route: acceptable for experiments, and a production dependency only if nothing better exists and a lawyer has looked at it.
-2. **The model never produces a number.** Code computes every figure from retrieved evidence. The model reads, matches and explains.
-3. **Show the working.** Every verdict displays the new price with its source and time, the comparables, and how sure the tool is.
-4. **Decline when the data is thin.** "Not enough data to judge" is a valid output. Carsales and CarGurus both withhold ratings in that case.
-5. **A price far below the range is a warning, not a bargain.** The tool flags it as a risk to check and never calls a listing safe.
-6. **Every check leaves data behind.** Item, price, condition, suburb and date are stored. Seller names, faces and profile links are not, and users' screenshots are discarded after extraction.
-7. **The verdict ignores commission.** It is computed before any retailer link is attached, and links that earn money are labelled.
+1. **Lawful routes only.** Official APIs the product is approved for, stock that suppliers publish, existing request networks, and enquiries to businesses. No marketplace access from the product's servers and no user passwords.
+2. **An enquiry is only an enquiry.** It says it is an assistant acting for a buyer, asks for price, condition and availability, and never promotes the product to the supplier.
+3. **Get the part right before asking anyone.** The agent asks the fitment questions first and says so when it cannot confirm a fit.
+4. **The model never produces a number.** Code computes prices, totals and rankings from what was retrieved.
+5. **Promise the user's time, not the clock.** Suppliers answer in hours. The product says so.
+6. **The user decides and pays.** The agent drafts and recommends; it does not commit or buy.
+7. **Every request leaves data behind:** which suppliers answer, how fast, on which channel, and what parts cost.
 8. **Measure before building more.** Each phase ends with numbers against the thresholds.
 
 ## Phases
 
-### Phase 0 — Verify, and test demand (week 1; mostly the founder with a phone)
+### Phase 0 — Find out whether the problem is already solved (week 1; the founder, no software)
 
-The overnight research could not open web pages and did not measure demand. These checks decide whether to build at all. Allow one to two full days of effort spread over the week, not a morning.
-
-| Check | Method | Stop if |
+| Check | Method | Stop or change if |
 |---|---|---|
-| General-assistant baseline | Ten to twenty real Australian listings as screenshots to ChatGPT, Gemini and Meta AI. For each, hand-check the best new price (cap it at 15 minutes per listing) and write your own verdict first. Score each assistant on new price within 5% and verdict the same as yours | The best assistant scores 70% or more on both |
-| Demand | Offer a manual service for one week in at least five Australian hobby groups: "send me a second-hand listing and I'll tell you if the price is fair". Answer by hand | Fewer than 5 people use it |
-| Existing Australian app | Search the App Store and Play Store for "used price checker", "is it a good deal", "compare second hand prices", "marketplace search all" | A funded local app does this |
-| Nearest competitors on Australian listings | Run five real Australian listings each through Deal Scout, PriceSnap, Spottable and PriceVet, which are the closest found. Check by hand whether BuyWisely shows used prices beside new | One gives Australian new prices and a sound verdict |
-| Meta price rating | Look for any buyer-facing price rating on a non-vehicle Marketplace listing | It exists in Australia |
-| Share-sheet payload | Share a Marketplace and a Gumtree listing from the phone apps to Notes on iPhone and Android; record what arrives | Does not stop anything; decides link versus screenshot as the main entry |
+| Existing locators | Put 20 real part requests, starting with the drive shaft, through Findapart, Hollander Parts, PartsClub and WrecKonnect. Mix common and uncommon parts, newer and older vehicles. Record whether a suitable quote arrives, how fast, and at what price | 70% or more get a suitable quote within 2 hours. Then the product is at most a signpost to them |
+| Supply the locators miss | For the same requests, search eBay and new-part retailers and phone five yards each. Record where the best option came from | Under 10% of best options come from outside the locators |
+| Will yards answer | While phoning, note which yards answer, which prefer a text or email, and what they ask you | Almost none answer on any channel |
+| Browser-agent trial | Run ten searches, including the drive shaft, with Claude in Chrome on your own account and time them. This shows what the optional desktop route can do | Does not stop anything; informs stage 4d of the pipeline |
+| Mechanics | Ask five mechanics how they source used parts, what they use, and what goes wrong | They are fully served by trade tools |
+| Second-hand goods comparison | Run five real listings through Deal Scout, PriceSnap, Spottable and PriceVet | Informs whether the fair-price step needs building or can be simple |
 
-The manual service doubles as the first labelled data: every listing answered by hand is a golden-set case.
+Start in parallel:
 
-Start in parallel, because they take days to weeks:
+- **Lawyer.** Ask about AI-voiced and automated enquiries to businesses under the telemarketing, spam and call-recording rules; what disclosure is needed; and the Gumtree and Meta terms for the optional desktop route.
+- **eBay Partner Network** application, for the parts listings on eBay.
+- **Approach one locator**, PartsClub or Hollander, about access to their stock search. They are a competitor and a possible partner.
 
-- Apply to the eBay Partner Network for production access to the Buy APIs, which eBay reserves for approved partners and reviews against a mock-up. Ask in the application whether eBay asking prices, shown in a separate eBay section, may inform a fair-price range for a listing on another site, and whether sold-price access is available.
-- Open publisher accounts on Commission Factory, Impact, Rakuten and Partnerize. Record which target retailers have product feeds, at what commission, and whether they accept comparison publishers. Of the retailers checked so far, Commission Factory lists BCF, Anaconda, Supercheap Auto, CameraPro and Camera House; the big tool retailers and Bunnings were not found there.
-- Ask the lawyer specifically about Gumtree's terms, which ban copying "by any means (manual or automated)", and whether a user sharing their own screenshot is caught.
-- Book a short consultation with an Australian technology lawyer on the points flagged in `research/findings/03-data-access-and-legal.md`.
+**Decision at the end of Phase 0:** build the sourcing agent for parts, change market, or stop.
 
-**Decision at the end of Phase 0:** proceed, change the offer, or stop.
+### Phase 1 — Do it by hand for real people (weeks 2–3)
 
-### Phase 1 — Coverage experiment (2–3 days, no app code)
+A concierge test: take real requests and fulfil them manually, following the pipeline as a checklist. This answers sub-questions 2, 3, 5 and part of 8 before any agent exists.
 
-Answers sub-question 1 and narrows the category.
+- **Recruit** 20–30 requests from car forums, Facebook groups and two or three mechanics.
+- **For each,** record the fitment questions needed, every source tried, each supplier's channel and response time, the options found, and what the person bought.
+- **Measure** supplier reply rate by channel, time to a usable answer, the person's own time, and whether they would use it again or pay.
 
-- **Sample:** 60 real items, 20 each from fishing reels with named models, power tools, and cameras and lenses. Include the founder's rod and reel as a known hard case. With 20 per category, pass and stop differ by four items, which is enough to see a clear result and not enough to see a fine one.
-- **Ground truth:** for each item, record by hand the best current Australian new price and where it is.
-- **Routes compared:** a search-results vendor; model web search restricted to named Australian retailers; eBay's Browse API; affiliate feeds for any retailer approved by then (probably none this early).
-- **Measures per route:** share of items with the best price found within 2%; time per lookup; cost per lookup in Australian dollars; which retailers are missing; and whether the route is official, grey or unknown.
-- **Economics per category, recorded alongside:** typical order value; commission rate at the main retailers, from the affiliate accounts; how often listings name a model.
+The record of which yards answer and how is the first version of the supplier-response map.
 
-**Decision rule:** a category goes forward if at least one route finds 80% of prices, and its expected revenue per check is not below its cost. If only the grey route works, that is recorded as an open risk, not a pass. The two best categories go to Phase 2.
+**Decision:** which stages are worth automating, and whether consumers or mechanics are the user.
 
-### Phase 2 — Pipeline without an interface (about 2 weeks)
+### Phase 2 — Build the agent without an app (weeks 3–6)
 
-Answers sub-questions 2, 3 and 4. Build the pipeline in `methodology/pipeline.md` as a command-line tool.
+Build the pipeline in `methodology/pipeline.md` as a tool the founder operates.
 
-- **Golden set:** about 100 real listings across the two categories, collected by the founder as screenshots with seller details cropped out, plus the Phase 0 cases. Each is labelled with the correct item, match tier, hand-checked new price, a reasonable used range and a verdict. A second person labels 20 of them, and the disagreement rate is reported.
-- **Measures:** match-tier accuracy; new-price accuracy; verdict agreement; count of untraceable figures; measured cost in Australian dollars and time per check.
-- **Baseline:** the same listings through general assistants, scored identically.
-- **Regression rule:** the golden set is re-run on every prompt or model change.
-- **eBay gate:** the design must work without eBay data until eBay has approved the app. Even then, eBay data must be under six hours old and cannot be stored in the price history or used to train anything, so it can inform a live answer only. Without eBay, the fair range rests on the new price and a percent-of-new table by category and condition. That table is hand-built from the Phase 0 and golden-set cases and is labelled as an assumption wherever it is shown.
+- **Order of build:** fitment questions; listed-stock search; request-network lodging; email and SMS enquiries; reply reading and matching; ranking with total cost. Voice calls last, and only after the lawyer's view.
+- **Test set:** the Phase 0 and Phase 1 requests, with their known outcomes.
+- **Measures:** fitment accuracy against a mechanic's judgement; best total cost against the by-hand result; supplier reply rate to agent enquiries against the by-hand rate; cost per request; any complaint from a supplier.
+- **Regression rule:** the test set is re-run on every change to prompts or models.
 
-**Decision:** build a user-facing version only if the tool beats the assistant baseline by the margin in sub-question 4 and passes sub-questions 2 and 3 in at least one category. That category becomes the first.
+**Decision:** build a user-facing version only if sub-questions 3, 4 and 5 pass.
 
 ### Phase 3 — First user-facing version (2–3 weeks)
 
-One flow: bring a listing, watch progress, read the verdict card, tap through to the new price or message the seller with the suggested offer. A few days later it asks "Did you buy it? For how much?"
+One flow: state the need, answer the fitment questions, get a first answer from listed stock, get notified as better options arrive, pick one.
 
-**Open decision: web first or app first.** The business track recommends a web version first, then a thin app, because shopping apps keep about 3% of users at day 30, store fees apply to subscriptions, and a web page can take real payments and be shared in a link. The idea brief asks for an App Store and Play Store app, and the share sheet is only available to an installed app. A workable order is a web version for the field study (upload a screenshot or paste a link), then the thin app once repeat use is shown. The founder decides.
+- **Web first or app first** is still the founder's decision. Notifications over hours favour a phone app; a web version is quicker to test and can take real payments. A workable order is web with SMS or email notifications for the field study, then the app.
+- Recommended stack from the architecture track: TypeScript throughout, Supabase, a durable job runner for requests that last hours, a small model for reading and matching and a stronger one for conversation; Expo for the app.
+- Not in this version: buying on the user's behalf, marketplace search inside the app, more than one category.
 
-- Recommended stack from the architecture track: TypeScript throughout, Supabase, a durable job runner, small model for extraction and matching, stronger model for the explanation; Expo for the app.
-- Not in this version: searching marketplaces, accounts beyond anonymous sign-in, alerts, barcode scanning, more than the first category.
+### Phase 4 — Field study (4 weeks)
 
-### Phase 4 — Field study (3–4 weeks)
+Answers sub-questions 6, 8 and 9. With 30–50 users this shows direction, not precise rates.
 
-Answers sub-questions 5–8. With 30–50 people this shows direction, not precise rates.
+- **Participants:** consumers from Phase 1 channels and at least five mechanics.
+- **Instrumented use:** user time per request, time to first and to best answer, options found, purchases completed, repeat requests within 30 days.
+- **Payment:** a real charge, tested as a finder's fee on a completed purchase for consumers and a monthly fee for mechanics.
+- **Supplier side:** reply rates over time, complaints, and whether any yard asks to be listed or to be left alone.
 
-- **Participants:** 30–50 people who buy second-hand in the first category, recruited from the groups used in Phase 0.
-- **Timed comparison:** each participant decides on three listings: one with the tool, one with a general assistant, one unaided. Record time and confidence.
-- **Instrumented use:** checks per user, second check within 14 days, taps on retailer links, response to the outcome prompt, time to answer.
-- **Willingness to pay:** a paid tier with a real price and real payment, offered to everyone after their second check. This needs the web version or a public store build; test builds do not take real money.
-- **Interviews:** ten short calls on what they trusted, what they ignored and what was missing.
-
-**Decision:** launch publicly in the category, change the offer, or stop. Sub-question 6 is the main gate: fewer than one in three returning within a fortnight means the product is a feature, not a destination.
+**Decision:** launch in car parts, move to the mechanic segment only, change category, or stop.
 
 ### Phase 5 — Widen, only on evidence
 
-Each step is taken when the previous one has the numbers to support it.
-
-1. **Saved items and price-drop alerts**, as the reason to return. Amazon's API terms bar price tracking and alerts, so these cannot use Amazon data.
-2. **More categories**, chosen by measured coverage, match accuracy and economics.
-3. **Cheapest way to own X:** a search across the sources with official routes (retailers, eBay, refurbished sellers) ranked by total cost. This is the founder's search vision for everything except Marketplace and Gumtree.
-4. **Public fair-price pages** per model, built from accumulated checks, so search engines and assistants cite the product.
-5. **Marketplace and Gumtree coverage** through a licence or partnership if one becomes available.
+1. **Adjacent categories with the same shape:** truck and machinery parts, tyres, appliance spare parts, building materials. One track ranks truck and machinery parts first, on judgement only.
+2. **Second-hand hobby goods:** "find it for me" for a specific rod, tool or lens, using the same engine and the fair-price check.
+3. **Supplier side:** a paid listing or lead product for yards, once there is buyer volume. It must stay separate from the ranking.
+4. **Desktop companion** for users with their own browser agent, if the lawyer's view allows.
 
 ## Evaluation summary
 
 | Phase | Sub-questions | Main measure | Who does it |
 |---|---|---|---|
-| 0 | 0, 4 (stop criterion only) | Demand for a manual service; assistant baseline | Founder |
-| 1 | 1 | New-price coverage and economics on 60 items | Founder and coding agent |
-| 2 | 2, 3, 4 | Golden-set accuracy against baseline | Coding agent; founder and a second labeller |
+| 0 | 1, 2 | Whether existing locators already solve it | Founder |
+| 1 | 2, 3, 5, 8 | By-hand fulfilment of real requests | Founder |
+| 2 | 3, 4, 5, 9 | Agent against the by-hand results | Coding agent; founder; a mechanic for fitment |
 | 3 | — | Working product | Coding agent |
-| 4 | 5, 6, 7, 8 | Time saved, repeat use, outcomes reported, payment | Founder with testers |
+| 4 | 6, 8, 9 | Time saved, repeat use, payment | Founder with users |
 
 ## What this methodology does not establish
 
-- **Market size.** A 50-person study shows whether the behaviour exists, not how many people share it.
-- **True accuracy of verdicts.** Without sold prices, "correct" means agreement with hand research.
-- **Long-run accuracy of fair-value ranges.** Those improve only as observed prices and outcomes accumulate.
-- **Legal clearance.** The lawyer consultation and eBay's written answer are inputs, not something the experiments can supply.
+- **Market size.** A 50-person study shows whether the behaviour exists, not how many share it.
+- **How suppliers react at scale.** Twenty enquiries a week is not two thousand.
+- **Legal clearance.** The lawyer's view is an input the experiments cannot supply.
+- **Durability against Google or the locators** adding the same agent. That depends on speed and on the supplier-response data.

@@ -8,6 +8,63 @@ Every track ran under two limits: the session could not open web pages, and the 
 
 Treat this as a well-founded first pass. The verification list is in `methodology/methodology.md`, Phase 0.
 
+## Third pass: the gap restated
+
+The founder challenged the first two passes on two points: whether the user's own permission makes searching logged-in sites feasible, and whether the product should do the legwork instead of judging a listing. Three reports in `research/findings/third-pass/` examined both. They change the recommended direction. Nothing was installed or run; product behaviour is from vendors' descriptions.
+
+### The gap
+
+**No product found, in Australia or overseas, takes a specific need, makes the enquiries itself across listed stock, request networks, marketplaces and suppliers who have to be asked, and returns one ranked answer across new, used, refurbished and wrecked.**
+
+The fair-price check in the sections below is not that product. It is the last step of it.
+
+### Why the earlier framing was wrong
+
+| Evidence | What it shows |
+|---|---|
+| Thirteen tools grade a listing the user already found; six have no Australian App Store ratings | A verdict is not the job people need done |
+| The recurring complaint about such tools is "I can do this myself, free" | Judging one listing saves minutes; finding the item costs hours |
+| CarEdge reports 163,096 AI negotiation sessions with US car dealers since July 2025; 1st Choice Spares (UK parts requests to breakers) has about 26,000 Trustpilot reviews; hipages earned A$90.6m in its 2026 financial year (the last two from search summaries) | Traction sits with products that collect answers from many suppliers for a costly or urgent purchase |
+| The AI calling products (Google's store-calling, Meta's, Pine) are US-only; Australia has only opt-in request boards | Nobody in Australia makes the enquiries for the user |
+
+### What already exists in car parts
+
+"One request, many wreckers" has been built four times in Australia, free to buyers: Findapart (since 2000), Hollander Parts (since 2018, claiming over a million parts of live stock), PartsClub (100+ wreckers, quotes "usually within 1 hour") and WrecKonnect (2025, for mechanics). None was tested. A request form is therefore not the gap.
+
+What was not found is one agent that covers all of them plus eBay, new-part prices and phone-only yards, asks the fitment questions up front and chases the suppliers who do not reply. eBay says about 80% of recycled-parts sales happen offline.
+
+### Does the user's permission make marketplace search feasible?
+
+Partly. It removes most of the computer-access risk and leaves the contract risk.
+
+| Route | Works? | Position |
+|---|---|---|
+| Official APIs and feeds | Where approved | Most defensible |
+| The user's own general browser agent, following instructions the product publishes | On desktop | Defensible; the user carries the account risk |
+| A browser extension that reads only the page the user is on | On desktop | Defensible; Spottable and Deal Scout work this way |
+| A browser extension that searches by itself | On desktop | Grey; Meta beat one such extension on contract in 2022 |
+| An in-app phone browser using the user's login | Poorly | Needs the Facebook password typed into the app, cannot run in the background on iPhone, and runs against Apple's and Google's store rules |
+| The app's servers holding the user's login | Technically | Reckless |
+
+- The August 2026 US appeals ruling in Amazon's case against Perplexity holds that the user, not the agent's maker, accesses the site when the agent runs locally. It expressly preserves terms-of-service claims, and it is not Australian law.
+- Meta, Gumtree and eBay each forbid automated access by their own users. Gumtree's October 2026 terms name browser automation. eBay Australia's ban covers automated access "for any purpose".
+- No product found has scaled on logged-in Marketplace access.
+
+So the permission route gives a desktop companion for people who already use a browser agent, not a phone app that searches Marketplace. The phone app's reach comes from official sources and from asking suppliers directly, which no platform's terms restrict.
+
+### Limits on the promise
+
+- "Five minutes" holds only for stock already listed online. Where suppliers have to be asked, CarEdge's dealers take 18.4 hours on average and 35% never reply. The promise that can be kept is minutes of the user's time and answers within hours.
+- Consumers need a car part rarely. The repeat buyer is the mechanic, where trade tools already aim.
+- An AI enquiry to buy a part looks lawful; pitching the platform to the supplier in the same message makes it commercial. Oneflare paid A$75,600 for texting businesses from public directories. The regulator's site could not be read, so this needs a lawyer.
+- Google's AI already phones US businesses for prices and began with auto shops. The Australian locators hold the stock data and could add an agent.
+
+### Corrections to earlier sections
+
+- A "suspiciously cheap" flag is not an opening; four tools already have it.
+- Scout: Marketplace Alerts, from an Australian company, was missed. It does alerts only.
+- eBay's "buy-for-me agents" wording is in its US agreement, not the Australian one.
+
 ## Second pass: what changed after reading the sources
 
 Network access was opened and four agents re-checked the decision-critical claims at the source. Their reports are in `research/findings/second-pass/`. Reddit, Whirlpool, eBay's developer site and several product sites refused automated requests, so some items stay unverified. The sections below have been updated; the main changes are:
