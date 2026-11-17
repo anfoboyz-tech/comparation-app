@@ -79,7 +79,7 @@ That last point is the only route found to something defensible, and it is slow.
 3. **Which category first?** On economics, cameras and power tools score best and fishing worst. You know fishing. I recommend testing reels with named models, power tools and cameras in Phase 1 and choosing on coverage and economics together.
 4. **Web first or app first?** The business track recommends a web version first, because it can take real payments and be shared as a link, then a thin app built around the share sheet. You asked for an app. I recommend the web version for the field study and the app once repeat use is shown.
 5. **Affiliate links?** This is contested. Two tracks advise against earning from the items being judged; one plans on it. I recommend allowing them, labelled, with the verdict computed before any link is attached, and testing a paid tier early.
-6. **Open network access for this project?** A request should be waiting for your approval. With it, and a fresh search allowance, I can run a second pass that reads the sources the first pass saw only in summary.
+6. **Open network access for this project?** My request to set this up was rejected by the service, so it needs doing by hand: in the session's title bar open the cloud environment menu, choose Edit, and under Network access either pick a broader level or add the research sites as allowed domains (steps: https://code.claude.com/docs/en/cloud-environments#network-access). With that, and a fresh search allowance, I can run a second pass that reads the sources the first pass saw only in summary.
 
 ## Where everything is
 
